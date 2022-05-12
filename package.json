@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "description": "Advanced starter boilerplate for React with Redux, Redux-Saga, Redux-Router and Babel support",
   "main": "index.js",
-  "repository": "https://github.com/KaiHotz/React-Redux-Simple-Starter",
-  "author": "Kai Hotz",
-  "license": "MIT",
+  "repository": "https://github.com/syedashar1/React-Redux-Simple-Starter",
+  "author": "Syed Ashar",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
