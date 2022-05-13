@@ -3,6 +3,7 @@ import { ITEM } from './types'
 
 export const item = {
   request: () => createAction(ITEM.GET, { fetching: true, success: false, error: null }),
+  increase: (count) => createAction(ITEM.INCREASE, { fetching: true, success: false, error: null , count : count || 0 }),
   requestOne: id => createAction(ITEM.GET_ONE, {
     id, fetching: true, success: false, error: null,
   }),

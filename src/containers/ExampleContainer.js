@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import {
+  exampleCounter,
   exampleDataSelector,
   fetchingSelector,
 } from '../selectors/exampleSelector'
@@ -12,10 +13,21 @@ export const ExampleContainer = () => {
   const dispatch = useDispatch()
   const exampleData = useSelector(exampleDataSelector)
   const fetching = useSelector(fetchingSelector)
+  const counter = useSelector(exampleCounter)
 
   useEffect(() => {
-    dispatch(item.requestOne('1'))
-  }, [dispatch])
+    dispatch(item.requestOne( counter ? counter.toString() : '1'))
+    // dispatch(item.increase(1))
+  }, [dispatch , counter])
+  
+  useEffect(() => {
+    console.log(exampleData);
+  }, [exampleData])
+
+  useEffect(() => {
+    console.log(counter);
+  }, [counter])
+  
 
   return fetching
     ? <LoadingAnimation />
@@ -30,10 +42,10 @@ export const ExampleContainer = () => {
               </h4>
             <div className="card-body">
               <h4 className="card-title">
-                {exampleData.title}
+                {exampleData.title}'title'
               </h4>
               <p className="card-text">
-                {exampleData.body}
+                {exampleData.body}'body'
               </p>
               <Link
                 to="/exampleComponent"
@@ -41,6 +53,11 @@ export const ExampleContainer = () => {
               >
                 Link to Example Component
               </Link>
+
+              <button onClick={()=>dispatch(item.increase(counter))} >
+                <>INCREASE</>
+              </button>
+
             </div>
           </div>
         </div>

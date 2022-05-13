@@ -2,6 +2,7 @@ import { createActionTypes } from '../utils'
 
 export const ITEM = createActionTypes('ITEM', [
   'GET',
+  'INCREASE',
   'GET_ONE',
   'SAVE',
   'PUT',

@@ -2,6 +2,16 @@ import { createSelector } from 'reselect'
 
 const exampleState = state => state.get('exampleData')
 
+
+const exampleCounter = createSelector(
+  exampleState,
+  state => {
+    const data = state.get('counter')
+
+    return data
+  },
+)
+
 const exampleDataSelector = createSelector(
   exampleState,
   state => {
@@ -28,4 +38,5 @@ export {
   exampleDataSelector,
   fetchingSelector,
   errorSelector,
+  exampleCounter
 }

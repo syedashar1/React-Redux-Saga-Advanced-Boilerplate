@@ -20,6 +20,18 @@ function* handleGet() {
   }
 }
 
+
+function* handleIncrease(action) {
+  try {
+    // const { data } = yield call(axios.get, 'https://jsonplaceholder.typicode.com/posts/')
+    const { count } = action.payload
+    yield put(item.success({ counter : count + 1 }))
+  } catch (e) {
+    yield put(item.failure({ error: { ...e } }))
+  }
+}
+
+
 function* handleGetOne(action) {
   try {
     const { id } = action.payload
@@ -73,6 +85,7 @@ function* handleDelete(action) {
 function* watchExampleSagas() {
   yield all([
     takeLatest(ITEM.GET, handleGet),
+    takeLatest(ITEM.INCREASE, handleIncrease),
     takeLatest(ITEM.GET_ONE, handleGetOne),
     takeLatest(ITEM.SAVE, handlePost),
     takeLatest(ITEM.PUT, handlePut),
